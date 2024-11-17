@@ -1,0 +1,7 @@
+AuthType Basic
+AuthName "Secure Section"
+AuthUserFile /etc/httpd/conf/.auth-{{ input_hostname }}
+Require valid-user
+{% if allowed_client_ip is defined %}
+Require ip {{ allowed_client_ip }}
+{% endif %}
